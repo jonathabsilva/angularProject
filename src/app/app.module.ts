@@ -1,14 +1,27 @@
+import { ROUTES } from './app.rotas.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+import { PersonagensComponent } from './personagens/personagens.component';
+import { PlanetasComponent } from './planetas/planetas.component';
+import { NavesEspaciaisComponent } from './naves-espaciais/naves-espaciais.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    HomeComponent,
+    PersonagensComponent,
+    PlanetasComponent,
+    NavesEspaciaisComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(ROUTES)
   ],
   providers: [],
   bootstrap: [AppComponent]
