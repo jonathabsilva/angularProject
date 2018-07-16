@@ -1,3 +1,8 @@
-<p>
-  personagens works!
-</p>
+
+<div *ngFor ="let personagem of personagens">
+  <h4>{{personagem.name}}</h4>
+  <button (click)="clicked(personagem.name)">Detalhes</button>
+
+  <!-- <personagem *ngIf="chave" [personagem]="personagem"></personagem> -->
+</div>
+
