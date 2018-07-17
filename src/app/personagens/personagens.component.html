@@ -1,8 +1,18 @@
 
-<div *ngFor ="let personagem of personagens">
-  <h4>{{personagem.name}}</h4>
-  <button (click)="clicked(personagem.name)">Detalhes</button>
+<!-- <div *ngFor ="let personagem of personagens">
+  <h4>{{personagem.name}}</h4> -->
+
+<div *ngIf="personagem">
+    <h4>{{personagem.name}}</h4>
+  <!-- <button (click)="clicked(personagem.name)">Detalhes</button> -->
 
   <!-- <personagem *ngIf="chave" [personagem]="personagem"></personagem> -->
+</div>
+
+<div *ngIf="!personagem">
+  <h4>Carregando...</h4>
+<!-- <button (click)="clicked(personagem.name)">Detalhes</button> -->
+
+<!-- <personagem *ngIf="chave" [personagem]="personagem"></personagem> -->
 </div>
 

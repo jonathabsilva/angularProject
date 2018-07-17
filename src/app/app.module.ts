@@ -1,3 +1,6 @@
+
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { PersonagensService } from './personagens/personagens.service';
 import { ROUTES } from './app.rotas.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -17,13 +20,15 @@ import { RouterModule } from '@angular/router';
     HomeComponent,
     PersonagensComponent,
     PlanetasComponent,
-    NavesEspaciaisComponent
+    NavesEspaciaisComponent,
+    
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [],
+  providers: [PersonagensService, HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

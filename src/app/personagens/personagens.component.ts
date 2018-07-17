@@ -1,5 +1,7 @@
+import { ListaPersonagens } from './listaPersonagens.module';
+import { Personagem } from './personagem.module';
+import { PersonagensService } from './personagens.service';
 
-import { Personagem } from './personagem/personagem.module';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,20 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonagensComponent implements OnInit {
 
-  personagens: Personagem[]=[
-    {name : "Luki", mass: 75, height: 177},
-    {name : "Leia",  mass: 62, height: 165},
-    {name : "Han Solo",  mass: 87, height: 179},
-
-  ]
-  constructor() { }
+  //personagens: Personagem[]
+  personagem: Personagem
+  lista: ListaPersonagens
+  
+  constructor(private personagensService: PersonagensService) { }
 
   ngOnInit() {
+    this.personagensService.personagens()
+    .subscribe(personagem => this.personagem = personagem);
+    
+    
+    console.log(this.personagem);
+    
   }
-
-  clicked(x: string){
-    let chave: boolean = true;
-    console.log(x);
-  }
+ 
 
 }

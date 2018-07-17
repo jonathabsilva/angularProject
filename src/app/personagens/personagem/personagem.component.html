@@ -1,10 +1,16 @@
-<h2>{{personagem.name}</h2>
-<h3>Informações do Personagem</h3>
-<ul>
-  <li>Cor do cabelo: {{?personagem.hair_color}}</li>
-  <li>Cor da Pele: {{?personagem.skin_color}}</li>
-  <li>Cor dos olhos: {{?personagem.eye_color}}</li>
-  <li>Ano de Nascimento: {{?personagem.birth_year}}</li>
-  <li>Gênero: {{?personagem.gender}}</li>
-  <li>Planeta Natal: {{?personagem.homeworld}}</li>
-</ul>>
+<div *ngIf = "personagem">
+  <h2>{{personagem.name}</h2>
+  <h3>Informações do Personagem</h3>
+  <ul>
+    <li>Cor do cabelo: {{?personagem.hair_color}}</li>
+    <li>Cor da Pele: {{?personagem.skin_color}}</li>
+    <li>Cor dos olhos: {{?personagem.eye_color}}</li>
+    <li>Ano de Nascimento: {{?personagem.birth_year}}</li>
+    <li>Gênero: {{?personagem.gender}}</li>
+    <li>Planeta Natal: {{?personagem.homeworld}}</li>
+  </ul>>
+</div>
+
+<div *ngIf = "!personagem">
+  Carregando...
+</div>
