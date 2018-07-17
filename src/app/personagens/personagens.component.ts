@@ -9,22 +9,23 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './personagens.component.html',
   styleUrls: ['./personagens.component.css']
 })
+
 export class PersonagensComponent implements OnInit {
 
-  //personagens: Personagem[]
-  personagem: Personagem
+
+  personagens: Personagem[]
   lista: ListaPersonagens
   
   constructor(private personagensService: PersonagensService) { }
 
   ngOnInit() {
-    this.personagensService.personagens()
-    .subscribe(personagem => this.personagem = personagem);
-    
-    
-    console.log(this.personagem);
-    
+    this.personagensService.listaPersonagens()
+    .subscribe(lista => this.lista = lista);
+    console.log(this.lista);
+    /* this.personagens = this.lista.results;
+    console.log(this.lista.results);  */   
+  
   }
- 
+
 
 }

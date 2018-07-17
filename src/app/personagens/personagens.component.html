@@ -1,18 +1,42 @@
 
-<!-- <div *ngFor ="let personagem of personagens">
-  <h4>{{personagem.name}}</h4> -->
+<div *ngIf = "lista">
 
-<div *ngIf="personagem">
+  Total: {{lista.count}}     <br>
+  Next: {{lista.next}} <br>
+  Previous: {{lista.previous}} <br>
+
+  Personagens:
+  <div *ngFor="let personagem of lista.results">
+    <br>
+    <button>{{personagem.name}}</button>
+  </div>
+</div>
+
+<div *ngIf = "!lista">
+  Carregando...
+</div>
+
+<!-- <div *ngIF = "personagens">
+  <div *ngFor = "let personagem of personagens">
     <h4>{{personagem.name}}</h4>
-  <!-- <button (click)="clicked(personagem.name)">Detalhes</button> -->
+    <br>
+  </div>
+</div>
 
-  <!-- <personagem *ngIf="chave" [personagem]="personagem"></personagem> -->
+<div *ngIF = "!personagens">
+  Carregando...
+</div> -->
+
+
+
+<!-- <div *ngIf="personagem">
+    <h4>{{personagem.name}}</h4>
+
+
 </div>
 
 <div *ngIf="!personagem">
   <h4>Carregando...</h4>
-<!-- <button (click)="clicked(personagem.name)">Detalhes</button> -->
 
-<!-- <personagem *ngIf="chave" [personagem]="personagem"></personagem> -->
-</div>
+</div> -->
 
