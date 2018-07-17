@@ -1,3 +1,5 @@
+import { PlanetasService } from './planetas/planetas.service';
+import { NavesService } from './naves-espaciais/naves.service';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { PersonagensService } from './personagens/personagens.service';
@@ -28,7 +30,7 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [PersonagensService, HttpClient],
+  providers: [PersonagensService, HttpClient, NavesService, PlanetasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

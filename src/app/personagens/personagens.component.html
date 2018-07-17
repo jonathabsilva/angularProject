@@ -1,21 +1,25 @@
+<div>
+  <div *ngIf = "lista">
 
-<div *ngIf = "lista">
+    Total: {{lista.count}}     <br>
+    Next: {{lista.next}} <br>
+    Previous: {{lista.previous}} <br>
 
-  Total: {{lista.count}}     <br>
-  Next: {{lista.next}} <br>
-  Previous: {{lista.previous}} <br>
-
-  Personagens:
-  <div *ngFor="let personagem of lista.results">
-    <br>
-    <button>{{personagem.name}}</button>
+    Personagens:
+    <div *ngFor="let personagem of lista.results">
+      
+      <button type="button" class="btn btn-info">{{personagem.name}}</button>
+      <br> <br>
+    </div>
+    <button *ngIf="lista.previous" type="button" class="btn btn-second" (click)="voltar()">Voltar</button>
+    <button *ngIf="lista.next" type="button" class="btn btn-primary" (click)="proximo()">Próximo</button>
   </div>
-</div>
 
-<div *ngIf = "!lista">
-  Carregando...
-</div>
+  <div *ngIf = "!lista">
+    Carregando...
+  </div>
 
+</div>
 <!-- <div *ngIF = "personagens">
   <div *ngFor = "let personagem of personagens">
     <h4>{{personagem.name}}</h4>

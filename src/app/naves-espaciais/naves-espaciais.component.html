@@ -1,3 +1,24 @@
-<p>
-  naves-espaciais works!
-</p>
+
+<div>
+  <div *ngIf = "listaNave">
+
+    Total: {{listaNave.count}}     <br>
+    Next: {{listaNave.next}} <br>
+    Previous: {{listaNave.previous}} <br>
+
+    Naves:
+    <div *ngFor="let nave of listaNave.results">
+      
+      <button type="button" class="btn btn-info">{{nave.name}}</button>
+      <br> <br>
+    </div>
+
+    <button *ngIf="listaNave.previous" type="button" class="btn btn-second" (click)="voltar()">Voltar</button>
+    <button *ngIf="listaNave.next" type="button" class="btn btn-primary" (click)="proximo()">Próximo</button>
+  </div>
+
+  <div *ngIf = "!listaNave">
+    Carregando...
+  </div>
+
+</div>

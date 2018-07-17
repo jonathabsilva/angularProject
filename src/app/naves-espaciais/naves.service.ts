@@ -1,17 +1,19 @@
+import { ListaNaves } from './listaNaves.module';
 import { Observable } from 'rxjs';
+import { API_NAVE } from './../app.api';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ListaPersonagens } from './listaPersonagens.module';
+
 
 @Injectable()
-export class PersonagensService{
+export class NavesService{
     
     
     constructor(private http: HttpClient){}
 
-    listaPersonagens(x: string): Observable<ListaPersonagens>{
+    listaNaves(x: string): Observable<ListaNaves>{
 
-        return this.http.get<ListaPersonagens>(x,
+        return this.http.get<ListaNaves>(x,
             { withCredentials: false, responseType: 'json' }
           );        
     }

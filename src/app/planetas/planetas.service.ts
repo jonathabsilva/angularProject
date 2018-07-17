@@ -1,17 +1,18 @@
+import { ListaPlanetas } from './listaPlanetas.module';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ListaPersonagens } from './listaPersonagens.module';
+
 
 @Injectable()
-export class PersonagensService{
+export class PlanetasService{
     
     
     constructor(private http: HttpClient){}
 
-    listaPersonagens(x: string): Observable<ListaPersonagens>{
+    listaPersonagens(x: string): Observable<ListaPlanetas>{
 
-        return this.http.get<ListaPersonagens>(x,
+        return this.http.get<ListaPlanetas>(x,
             { withCredentials: false, responseType: 'json' }
           );        
     }
