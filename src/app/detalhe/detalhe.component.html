@@ -1,0 +1,42 @@
+<div *ngIf="personagem"> 
+
+  <h2> {{personagem.name}}</h2>
+  <h3>Informações do Personagem</h3>
+  <ul>
+    <li>Cor do cabelo: {{personagem.hair_color}}</li>
+    <li>Cor da pele: {{personagem.skin_color}}</li>
+    <li>Cor dos olhos: {{personagem.eye_color}}</li>
+    <li>Ano de nascimento: {{personagem.birth_year}}</li>
+    <li>Planeta Natal:  {{personagem.homeworld}}</li>
+  </ul>
+
+  <h3> Planeta Natal</h3>
+    <ul>
+      <li>{{personagem.homeworld}}</li>
+    </ul>
+  
+  <h3>Filmes</h3>
+  <ul *ngFor ="let filme of personagem.films">
+    <li>{{filme}}</li>
+  </ul>
+  
+  <h3>Espécie</h3>
+  <ul *ngFor="let especie of personagem.species">
+    <li>{{especie}}</li>
+  </ul>
+
+  <h3>Veículos Utilizados</h3>
+  <ul *ngFor="let veiculo of personagem.vehicles">
+    <li>{{veiculo}}</li>
+  </ul>
+
+  <h3>Naves Espaciais</h3>
+  <ul *ngFor="let nave of personagem.starships">
+    <li>{{nave}}</li>
+  </ul>
+
+</div>
+
+<div *ngIf="!personagem">Carregando dados do personagem... </div>
+
+

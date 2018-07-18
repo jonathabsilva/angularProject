@@ -1,3 +1,4 @@
+import { PersonagemService } from './detalhe/personagem.service';
 import { PlanetasService } from './planetas/planetas.service';
 import { NavesService } from './naves-espaciais/naves.service';
 
@@ -14,6 +15,7 @@ import { PersonagensComponent } from './personagens/personagens.component';
 import { PlanetasComponent } from './planetas/planetas.component';
 import { NavesEspaciaisComponent } from './naves-espaciais/naves-espaciais.component';
 import { RouterModule } from '@angular/router';
+import { DetalheComponent } from './detalhe/detalhe.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { RouterModule } from '@angular/router';
     PersonagensComponent,
     PlanetasComponent,
     NavesEspaciaisComponent,
+    DetalheComponent,
     
   ],
   imports: [
@@ -30,7 +33,7 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [PersonagensService, HttpClient, NavesService, PlanetasService],
+  providers: [PersonagensService, HttpClient, NavesService, PlanetasService, PersonagemService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
