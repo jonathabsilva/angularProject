@@ -6,9 +6,9 @@
     Previous: {{lista.previous}} <br>
 
     Personagens:
-    <div *ngFor="let personagem of lista.results; let i = index">
+    <div *ngFor="let personagem of lista.results; let i = index; let x = a">
       
-      <a type="button" class="btn btn-info" [routerLink]= "['../detalhes/people/', i+1 ]">{{ personagem.name }}</a>
+      <a type="button" class="btn btn-info" [routerLink]= "['../detalhes/people/', i+1+a*10 ]">{{ personagem.name }}</a>
       <!-- <button type="button" class="btn btn-info">{{personagem.name}}</button> -->
       <br> <br>
     </div>
