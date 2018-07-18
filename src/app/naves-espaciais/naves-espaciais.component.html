@@ -9,7 +9,8 @@
     Naves:
     <div *ngFor="let nave of listaNave.results">
       
-      <button type="button" class="btn btn-info">{{nave.name}}</button>
+      <a type="button" class="btn btn-info" [routerLink]= "['../detalhes/nave/', nave.url]">{{ nave.name }}</a>
+      
       <br> <br>
     </div>
 
