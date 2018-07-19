@@ -7,7 +7,9 @@
     <li>Cor da pele: {{personagem.skin_color}}</li>
     <li>Cor dos olhos: {{personagem.eye_color}}</li>
     <li>Ano de nascimento: {{personagem.birth_year}}</li>
-    <li>Planeta Natal:  {{personagem.homeworld}}</li>
+    <div *ngIf="mundo; else getMundo()">
+      <li>Planeta Natal:  {{mundo.name}}</li>
+    </div>
   </ul>
 
   <h3> Planeta Natal</h3>
