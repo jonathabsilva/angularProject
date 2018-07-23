@@ -16,9 +16,9 @@
   <h3>Classe</h3>{{nave.starship_class}}
   
   <div *ngIf="nave.pilots">
-      <h3>Veículos Utilizados</h3>
+      <h3>Pilotos</h3>
       <div *ngIf="!pilotosVazio()">
-        <ul *ngFor="let piloto of pilotoTemp">
+        <ul *ngFor="let piloto of pilotosTemp">
           <li *ngIf="piloto">{{piloto.name}}</li>
         </ul>
       </div>
@@ -26,13 +26,29 @@
       
       <div *ngIf="pilotosVazio()">
          <div>
-            <span *ngIf="getPilotos()">Nenhum veículo encontrado para esse personagem até o momento...</span>
+            <span *ngIf="getPilotos()">Nenhum piloto encontrado para essa nave até o momento...</span>
          </div>
       </div>
-    </div>
+  </div>
 
-	<h3>Pilots</h3> Carregando...
-	<h3>Films</h3> Carregando...
+  <div *ngIf="nave.films">
+      <h3>Filmes</h3>
+      <div *ngIf="!filmesVazio()">
+        <ul *ngFor="let filme of filmesTemp">
+          <li *ngIf="filme">{{filme.title}}</li>
+        </ul>
+      </div>
+  
+      
+      <div *ngIf="filmesVazio()">
+         <div>
+            <span *ngIf="getFilmes()">Nenhum filme encontrado para essa nave até o momento...</span>
+         </div>
+      </div>
+  </div>
+
+	
+
 </div>
 
 

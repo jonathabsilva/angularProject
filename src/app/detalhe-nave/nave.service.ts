@@ -1,3 +1,4 @@
+import { Filme } from './../personagens/filme.module';
 import { Personagem } from './../personagens/personagem.module';
 import { Nave } from './../naves.module';
 import { Observable } from 'rxjs';
@@ -23,6 +24,12 @@ export class NaveService{
         return this.http.get<Personagem>(p,
             { withCredentials: false, responseType: 'json' }
           );        
+    }
+
+    pergarFilmes(f: string): Observable<Filme>{
+        return this.http.get<Filme>(f,
+            { withCredentials: false, responseType: 'json' }
+        );
     }
 
 
