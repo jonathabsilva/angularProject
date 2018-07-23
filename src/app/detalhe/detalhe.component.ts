@@ -32,7 +32,10 @@ export class DetalheComponent implements OnInit, OnChanges, DoCheck {
   especieTemp: Array<Especie> = []
   habGetNave: number = 0;
   habGetFilme: number = 0;
-  habGetEspecie: number = 0;
+  habGetEspecies: number = 0;
+  habGetMundo: number = 0;
+  habGetVeiculos: number = 0;
+  vezes: number =  2;
 
   constructor(private route: ActivatedRoute, private personagemService: PersonagemService) { 
     this.route.params.subscribe(res => this.x = res.id);
@@ -89,7 +92,7 @@ export class DetalheComponent implements OnInit, OnChanges, DoCheck {
   }
 
   getNaves(): boolean{
-    if(this.habGetNave){
+    if(this.habGetNave<this.vezes){
     try{
       if(this.personagem !== undefined){
         if(this.personagem.starships.length){
@@ -113,13 +116,13 @@ export class DetalheComponent implements OnInit, OnChanges, DoCheck {
       console.log(e);
      
     }
-    this.habGetNave= false;
+    this.habGetNave++;
   }
     return true;         
   }
 
   getFilmes(): boolean{
-    if(this.habGetFilme){
+    if(this.habGetFilme < this.vezes){
     try{
       if(this.personagem !== undefined){
         console.log("getFilmes() chamado!");
@@ -133,7 +136,7 @@ export class DetalheComponent implements OnInit, OnChanges, DoCheck {
     } catch(e){
       console.log(e);
     }
-    this.habGetFilme = false;
+    this.habGetFilme++;
   }
 
     return true;         
@@ -141,6 +144,7 @@ export class DetalheComponent implements OnInit, OnChanges, DoCheck {
 
 
   getMundo(): boolean{
+    if(this.habGetMundo<this.vezes){
     if(this.personagem !== undefined){
       this.personagemService.pegarPlaneta(this.personagem.homeworld)
       .subscribe(mundo => this.mundo = mundo);
@@ -148,7 +152,8 @@ export class DetalheComponent implements OnInit, OnChanges, DoCheck {
       if(this.personagem == undefined){
         console.log("Personagem ainda não foi definido!");        
       }
-
+    }
+    this.habGetMundo++;
     return true;
   }
   
@@ -158,6 +163,7 @@ export class DetalheComponent implements OnInit, OnChanges, DoCheck {
 
 
   getVeiculos(): boolean{
+    if(this.habGetVeiculos < this.vezes){
     try{
       if(this.personagem !== undefined){
         if(this.personagem.vehicles.length ){
@@ -170,7 +176,9 @@ export class DetalheComponent implements OnInit, OnChanges, DoCheck {
     } catch(e){
       console.log(e);
      
-    }    
+    }
+  }
+    this.habGetVeiculos++;    
     return true;  
   }
   
@@ -190,6 +198,7 @@ export class DetalheComponent implements OnInit, OnChanges, DoCheck {
   }
 
   getEspecies(): boolean{
+    if(this.habGetEspecies < this.vezes){
     try{
       if(this.personagem !== undefined){
         if(this.personagem.species.length ){
@@ -202,7 +211,8 @@ export class DetalheComponent implements OnInit, OnChanges, DoCheck {
     } catch(e){
       console.log(e);
      
-    }    
+    }    }
+    this.habGetEspecies++;
     return true;  
   }
 
