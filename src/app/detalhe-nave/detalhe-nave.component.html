@@ -1,5 +1,38 @@
 <div *ngIf="nave">
-  {{nave.name}}
+
+  <h3>Nome</h3>{{nave.name}}
+  <h3>Modelo</h3>{{nave.model}}
+  <h3>Manufatura</h3>{{nave.manufacturer}}
+	<h3>Preço</h3>{{nave.cost_in_credits}}
+  <h3>Tamanho</h3>{{nave.length}}
+  <h3>Velocidade Máxima</h3>{{nave.max_atmosphering_speed}}
+	<h3>Equipe Técnica</h3>{{nave.crew}}
+	<h3>Passageiros</h3>{{nave.passengers}}
+	<h3>Capacidade de carga</h3>{{nave.cargo_capacity}}
+	<h3>Velocidade Máxima</h3>{{nave.max_atmosphering_speed}}
+	<h3>Autonomia</h3>{{nave.consumables}}
+	<h3>Motor</h3>{{nave.hyperdrive_rating}}
+	<h3>MGLT</h3>{{nave.MGLT}}
+  <h3>Classe</h3>{{nave.starship_class}}
+  
+  <div *ngIf="nave.pilots">
+      <h3>Veículos Utilizados</h3>
+      <div *ngIf="!pilotosVazio()">
+        <ul *ngFor="let piloto of pilotoTemp">
+          <li *ngIf="piloto">{{piloto.name}}</li>
+        </ul>
+      </div>
+  
+      
+      <div *ngIf="pilotosVazio()">
+         <div>
+            <span *ngIf="getPilotos()">Nenhum veículo encontrado para esse personagem até o momento...</span>
+         </div>
+      </div>
+    </div>
+
+	<h3>Pilots</h3> Carregando...
+	<h3>Films</h3> Carregando...
 </div>
 
 

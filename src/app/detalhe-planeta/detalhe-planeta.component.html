@@ -1,5 +1,47 @@
 <div *ngIf="planeta">
-  {{planeta.name}}
+  <h3>Nome</h3> {{planeta.name}}
+  <h3>Périodo de rotação</h3> {{planeta.rotation_period}}
+  <h3>Périodo de Orbita</h3> {{planeta.orbital_period}}
+  <h3>Clima</h3> {{planeta.climate}}
+  <h3>Gravidade</h3> {{planeta.gravity}}
+  <h3>Terreno</h3> {{planeta.terrai}}
+  <h3>Água da superfície</h3> {{planeta.surface_water}}
+  <h3>População</h3> {{planeta.population}}
+
+  <div *ngIf="planeta.residents">
+      <h3>Residentes no planeta</h3>
+      <div *ngIf="!residentesVazio()">
+        <ul *ngFor="let personagem of residenteTemp">
+          <li *ngIf="personagem">{{personagem.name}}</li>
+        </ul>
+      </div>
+  
+      
+      <div *ngIf="residentesVazio()">
+         <div>
+            <span *ngIf="getResidentes()">Nenhum residente encontrado até o momento...</span>
+         </div>
+      </div>
+    </div>
+
+    <div *ngIf="planeta.films">
+        <h3>Residentes no planeta</h3>
+        <div *ngIf="!planetaFilmesVazio()">
+          <ul *ngFor="let filme of planetaFilmesTemp">
+            <li *ngIf="filme">{{filme.title}}</li>
+          </ul>
+        </div>
+    
+        
+        <div *ngIf="residentesVazio()">
+           <div>
+              <span *ngIf="getPlanetaFilmes()">Nenhum filme encontrado até o momento...</span>
+           </div>
+        </div>
+      </div>
+ 
+  
+
 </div>
 
 
