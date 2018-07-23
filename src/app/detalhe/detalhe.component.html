@@ -7,38 +7,84 @@
     <li>Cor da pele: {{personagem.skin_color}}</li>
     <li>Cor dos olhos: {{personagem.eye_color}}</li>
     <li>Ano de nascimento: {{personagem.birth_year}}</li>
-    <div *ngIf="mundo; else getMundo()">
+    <div *ngIf="mundo">
       <li>Planeta Natal:  {{mundo.name}}</li>
+    </div>
+
+    <div *ngIf="!mundo">
+      <li >Planeta Natal:  <span *ngIf="getMundo()">carregando...</span></li>
     </div>
   </ul>
 
-  <h3> Planeta Natal</h3>
-    <ul>
-      <li>{{personagem.homeworld}}</li>
-    </ul>
   
-  <h3>Filmes</h3>
-  <ul *ngFor ="let filme of personagem.films">
-    <li>{{filme}}</li>
-  </ul>
+
+  <div *ngIf="personagem.films">
+    <h3>Filmes</h3>
+    <div *ngIf="!filmeVazio()">
+      <ul *ngFor ="let filme of filmeTemp">      
+        <li *ngIf="filme">{{filme.title}}</li>
+      </ul>
+    </div>
+
+    <div *ngIf="filmeVazio()">
+      <span *ngIf="getFilmes()">Carregando filmes...</span>
+    </div>
+  </div>
   
-  <h3>Espécie</h3>
-  <ul *ngFor="let especie of personagem.species">
-    <li>{{especie}}</li>
-  </ul>
+  <div *ngIf="personagem.species">
+      <h3>Espécies</h3>
+      <div *ngIf="!especieVazia()">
+        <ul *ngFor="let especie of especieTemp">
+          <li *ngIf="especie">{{especie.name}}</li>
+        </ul>
+      </div>
+        
+      <div *ngIf="especieVazia()">
+         <div>
+            <span *ngIf="getEspecies()">Nenhum espécie encontrado para esse personagem até o momento...</span>
+         </div>
+      </div>
+  </div>
 
-  <h3>Veículos Utilizados</h3>
-  <ul *ngFor="let veiculo of personagem.vehicles">
-    <li>{{veiculo}}</li>
-  </ul>
 
-  <h3>Naves Espaciais</h3>
-  <ul *ngFor="let nave of personagem.starships">
-    <li>{{nave}}</li>
-  </ul>
+  <div *ngIf="personagem.vehicles">
+    <h3>Veículos Utilizados</h3>
+    <div *ngIf="!veiculosVazio()">
+      <ul *ngFor="let veiculo of veiculoTemp">
+        <li *ngIf="veiculo">{{veiculo.name}}</li>
+      </ul>
+    </div>
+
+    
+    <div *ngIf="veiculosVazio()">
+       <div>
+          <span *ngIf="getVeiculos()">Nenhum veículo encontrado para esse personagem até o momento...</span>
+       </div>
+    </div>
+  </div>
+
+
+  <div *ngIf="personagem.starships">
+      <h3>Naves Utilizadas</h3>
+      <div *ngIf="!naveVazio()">
+        <ul *ngFor="let nave of naveTemp">
+          <li *ngIf="nave">{{nave.name}}</li>
+        </ul>
+      </div>
+  
+      
+      <div *ngIf="naveVazio()">
+         <div>
+            <span *ngIf="getNaves()">Nenhum veículo encontrado para esse personagem até o momento...</span>
+         </div>
+      </div>
+    </div>
 
 </div>
 
-<div *ngIf="!personagem">Carregando dados do personagem... </div>
+<div *ngIf="!personagem">
+  <span>Carregando dados do personagem... </span>
+
+</div>
 
 
